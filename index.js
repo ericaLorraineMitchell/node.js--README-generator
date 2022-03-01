@@ -18,7 +18,7 @@ const questions = () => {
     },
     {
       type: "input",
-      name: "table of contents",
+      name: "contents",
       message: "List the contents of the project separated by commas",
     },
     {
@@ -66,12 +66,17 @@ const questions = () => {
   ]);
 };
 
-questions();
-// // TODO: Create a function to write README file
-// const generateHTML = ({}) => function writeToFile(generateHTML, data) {};
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
+// TODO: Create a function to initialize app
+function init() {
+  questions()
+    // TODO: Create a function to write README file
+    .then((data) => {
+      // console.log(data);
+      const mdFile = `## ${data.title}\n ## ${data.description}\n ## Table of Contents\n1. [Title](#${data.title})\n ${data.installation}\n ${data.usage}\n ${data.license}\n ${data.contributing}\n ${data.tests}\n ${data.questions}\n ${data.GitHub}\n ${data.email}`;
+      fs.writeFile("./generator_output/README.md", mdFile, (err, data) => {
+        err ? console.error(err) : console.log("Success!");
+      });
+    });
+}
 // // Function call to initialize app
-// init();
+init();
