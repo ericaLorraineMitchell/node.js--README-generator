@@ -18,11 +18,6 @@ const questions = () => {
     },
     {
       type: "input",
-      name: "contents",
-      message: "List the contents of the project separated by commas",
-    },
-    {
-      type: "input",
       name: "installation",
       message: "What installation(s) are needed for the project?",
     },
@@ -72,7 +67,8 @@ function init() {
     // TODO: Create a function to write README file
     .then((data) => {
       // console.log(data);
-      const mdFile = `## ${data.title}\n ## ${data.description}\n ## Table of Contents\n1. [Title](#${data.title})\n ${data.installation}\n ${data.usage}\n ${data.license}\n ${data.contributing}\n ${data.tests}\n ${data.questions}\n ${data.GitHub}\n ${data.email}`;
+      const mdFile = `# ${data.title}\n ## ${data.description}\n ## Table of Contents\n1. [Title](#${data.title})\n 2. [Description](#${data.description})\n 3. [Installation](#${data.installation})\n 4. [Usage](#${data.usage})\n 5. [License](#${data.license})\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${data.tests})\n 8. [Questions](#${data.questions})\n  ## ${data.installation}\n  ## ${data.usage}\n  ## ${data.license}\n  ## ${data.contributing}\n  ## ${data.tests}\n  ## ${data.questions}\n  ## ${data.GitHub}\n  ## ${data.email}`;
+
       fs.writeFile("./generator_output/README.md", mdFile, (err, data) => {
         err ? console.error(err) : console.log("Success!");
       });
