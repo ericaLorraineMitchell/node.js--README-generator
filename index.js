@@ -30,7 +30,7 @@ const questions = () => {
       type: "list",
       name: "license",
       message: "Which open source license are you using?",
-      choices: ["MIT", "GNU GPLv3", "Apache License 2.0"],
+      choices: ["MIT", "GNU GPLv3", "Unlicense"],
     },
     {
       type: "input",
@@ -67,7 +67,34 @@ function init() {
     // TODO: Create a function to write README file
     .then((data) => {
       // console.log(data);
-      const mdFile = `# ${data.title}\n ## ${data.description}\n ## Table of Contents\n1. [Title](#${data.title})\n 2. [Description](#${data.description})\n 3. [Installation](#${data.installation})\n 4. [Usage](#${data.usage})\n 5. [License](#${data.license})\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${data.tests})\n 8. [Questions](#${data.questions})\n  ## ${data.installation}\n  ## ${data.usage}\n  ## ${data.license}\n  ## ${data.contributing}\n  ## ${data.tests}\n  ## ${data.questions}\n  ## ${data.GitHub}\n  ## ${data.email}`;
+      const mdFile = ` ${showLicenseBadge(data.license)} # ${data.title}\n ## ${
+        data.description
+      }\n ## Table of Contents\n1. [Title](#${
+        data.title
+      })\n 2. [Description](#${data.description})\n 3. [Installation](#${
+        data.installation
+      })\n 4. [Usage](#${data.usage})\n 5. [License](#${
+        data.license
+      })\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${
+        data.tests
+      })\n 8. [Questions](#${data.questions})\n  ## ${
+        data.installation
+      }\n  ## ${data.usage}\n  ## ${data.license}\n  ## ${
+        data.contributing
+      }\n  ## ${data.tests}\n  ## ${data.questions}\n  ## ${
+        data.GitHub
+      }\n  ## ${data.email}`;
+
+      //function to show correct license badge choice at top of README & notice in License section
+      function showLicenseBadge(license) {
+        if (license === "MIT") {
+          return `[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)`;
+        } else if (license === "GPLv3") {
+          return `[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)`;
+        } else {
+          `[![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](https://unlicense.org/)`;
+        }
+      }
 
       fs.writeFile("./generator_output/README.md", mdFile, (err, data) => {
         err ? console.error(err) : console.log("Success!");
