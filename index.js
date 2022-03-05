@@ -69,7 +69,7 @@ function init() {
       // console.log(data);
       const mdFile = ` ${showLicenseBadge(data.license)} # ${data.title}\n ## ${
         data.description
-      }\n ## Table of Contents\n1. [Title](#${
+      }\n ## Table of Contents\n 1. [Title](#${
         data.title
       })\n 2. [Description](#${data.description})\n 3. [Installation](#${
         data.installation
@@ -80,9 +80,9 @@ function init() {
       })\n  8. [Questions](#${data.questions})\n  
       ## ${data.installation}\n  ## ${data.usage}\n  ## ${
         data.license
-      }\n Click Badge icon up top for notice.\n  ## ${data.contributing}\n  ## ${
-        data.tests
-      }\n  ## ${
+      }\n Click Badge icon up top for notice.\n  ## ${
+        data.contributing
+      }\n  ## ${data.tests}\n  ## ${
         data.questions
       }\n Visit my GitHub profile: [GitHub Profile](https://github.com/${
         data.GitHub
