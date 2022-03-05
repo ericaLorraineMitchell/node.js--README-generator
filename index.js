@@ -67,9 +67,10 @@ function init() {
     // TODO: Create a function to write README file
     .then((data) => {
       // console.log(data);
-      const mdFile = ` ${showLicenseBadge(data.license)} # ${data.title}\n ## ${
-        data.description
-      }\n ## Table of Contents\n 1. [Title](#${
+      const mdFile = ` # ${data.title} 
+      ${showLicenseBadge(
+        data.license
+      )}\n  ## ${data.description}\n ## Table of Contents\n 1. [Title](#${
         data.title
       })\n 2. [Description](#${data.description})\n 3. [Installation](#${
         data.installation
@@ -77,8 +78,9 @@ function init() {
         data.license
       })\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${
         data.tests
-      })\n  8. [Questions](#${data.questions})\n  
-      ## ${data.installation}\n  ## ${data.usage}\n  ## ${
+      })\n 8. [Questions](#${data.questions})\n  ## ${
+        data.installation
+      }\n  ## ${data.usage}\n  ## ${
         data.license
       }\n Click Badge icon up top for notice.\n  ## ${
         data.contributing
@@ -86,7 +88,7 @@ function init() {
         data.questions
       }\n Visit my GitHub profile: [GitHub Profile](https://github.com/${
         data.GitHub
-      }) You can reach me at: [(${data.email})](${data.email}) `;
+      }) You can reach me at: [Email](${data.email}) `;
 
       //function to show correct license badge choice at top of README
       function showLicenseBadge(license) {
