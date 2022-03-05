@@ -30,7 +30,7 @@ const questions = () => {
       type: "list",
       name: "license",
       message: "Which open source license are you using?",
-      choices: ["MIT", "GNU GPLv3", "Unlicense"],
+      choices: ["MIT", "GPLv3", "Unlicense"],
     },
     {
       type: "input",
@@ -51,7 +51,7 @@ const questions = () => {
     {
       type: "input",
       name: "GitHub",
-      message: "Provide the GitHub repository link.",
+      message: "Provide GitHub username.",
     },
     {
       type: "input",
@@ -77,15 +77,18 @@ function init() {
         data.license
       })\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${
         data.tests
-      })\n 8. [Questions](#${data.questions})\n  ## ${
-        data.installation
-      }\n  ## ${data.usage}\n  ## ${data.license}\n  ## ${
-        data.contributing
-      }\n  ## ${data.tests}\n  ## ${data.questions}\n  ## ${
+      })\n  8. [Questions](#${data.questions})\n  
+      ## ${data.installation}\n  ## ${data.usage}\n  ## ${
+        data.license
+      }\n Click Badge icon up top for notice.\n  ## ${data.contributing}\n  ## ${
+        data.tests
+      }\n  ## ${
+        data.questions
+      }\n Visit my GitHub profile: [GitHub Profile](https://github.com/${
         data.GitHub
-      }\n  ## ${data.email}`;
+      }) You can reach me at: [(${data.email})](${data.email}) `;
 
-      //function to show correct license badge choice at top of README & notice in License section
+      //function to show correct license badge choice at top of README
       function showLicenseBadge(license) {
         if (license === "MIT") {
           return `[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)`;
