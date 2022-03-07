@@ -6,9 +6,10 @@ Using Node.js this project asks several questions within the terminal in order t
 
 ## Usage
 
-In order to use this project, Inquirer package is required for install.
+In order to use this project, Inquirer package is required for install. You will also need to open Integrated Terminal and run "node index.js" as a command to begin.
 
 ## Links
 
 Please see Github repository [Here](https://github.com/ericaLorraineMitchell/node.js--README-generator.git)
+
 Please see recording of generating a README.md file [Here]()

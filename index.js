@@ -67,10 +67,9 @@ function init() {
     // TODO: Create a function to write README file
     .then((data) => {
       // console.log(data);
-      const mdFile = ` # ${data.title} 
-      ${showLicenseBadge(
-        data.license
-      )}\n  ## ${data.description}\n ## Table of Contents\n 1. [Title](#${
+      const mdFile = ` # ${data.title}\n ## ${
+        data.description
+      }\n ## Table of Contents\n 1. [Title](#${
         data.title
       })\n 2. [Description](#${data.description})\n 3. [Installation](#${
         data.installation
@@ -78,17 +77,17 @@ function init() {
         data.license
       })\n 6. [Contributing](#${data.contributing})\n 7. [Tests](#${
         data.tests
-      })\n 8. [Questions](#${data.questions})\n  ## ${
-        data.installation
-      }\n  ## ${data.usage}\n  ## ${
+      })\n 8. [Questions](#${data.questions})\n ## ${data.installation}\n ## ${
+        data.usage
+      }\n  ## ${showLicenseBadge(
         data.license
-      }\n Click Badge icon up top for notice.\n  ## ${
-        data.contributing
-      }\n  ## ${data.tests}\n  ## ${
+      )}\n Click Badge icon for notice.\n ## ${data.contributing}\n  ## ${
+        data.tests
+      }\n ## ${
         data.questions
       }\n Visit my GitHub profile: [GitHub Profile](https://github.com/${
         data.GitHub
-      }) You can reach me at: [Email](${data.email}) `;
+      })\n You can reach me at: [Email](${data.email}) `;
 
       //function to show correct license badge choice at top of README
       function showLicenseBadge(license) {
@@ -96,9 +95,8 @@ function init() {
           return `[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)`;
         } else if (license === "GPLv3") {
           return `[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)`;
-        } else {
-          `[![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](https://unlicense.org/)`;
-        }
+        } else license === "Unlicense";
+        return `[![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](https://unlicense.org/)`;
       }
 
       fs.writeFile("./generator_output/README.md", mdFile, (err, data) => {
