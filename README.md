@@ -12,4 +12,4 @@ In order to use this project, Inquirer package is required for install. You will
 
 Please see Github repository [Here](https://github.com/ericaLorraineMitchell/node.js--README-generator.git)
 
-Please see recording of generating a README.md file [Here]()
+Please see recording of generating a README.md file [Here](https://drive.google.com/file/d/1vg_8kRP-87zuECYI3gKMgzNPKFIv7u9p/view)
